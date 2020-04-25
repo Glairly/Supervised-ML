@@ -17,15 +17,18 @@ for iter = 1:num_iters
     %       of the cost function (computeCostMulti) and gradient here.
     %
 
-
-
-
-
-
-
-
-
-
+  %  temp_theta = zeros(n,1); 
+  %  for i = 1 : m
+  %    for j = 1 : n
+  %      temp_theta(j) = theta(j) - (alpha/m).*(sum((X*theta - y).*X(:,j)));
+  %    endfor
+  %  endfor
+    
+    h = X * theta;
+    errors = h - y;
+    delta = X' * errors;
+    theta = theta - (alpha / m) * delta;
+   
 
     % ============================================================
 
@@ -33,5 +36,4 @@ for iter = 1:num_iters
     J_history(iter) = computeCostMulti(X, y, theta);
 
 end
-
 end
