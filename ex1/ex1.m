@@ -38,7 +38,10 @@ pause;
 
 %% ======================= Part 2: Plotting =======================
 fprintf('Plotting Data ...\n')
-data = load('ex1data1.txt');
+data = load('med.txt');
+%data = [zeros(10,1),zeros(10,1)];
+%[data(:,1),data(:,2)] = randomData(10);
+%[X,y] = randomData(10);
 X = data(:, 1); y = data(:, 2);
 m = length(y); % number of training examples
 
@@ -56,7 +59,7 @@ theta = zeros(2, 1); % initialize fitting parameters
 
 % Some gradient descent settings
 iterations = 1500;
-alpha = 0.01;
+alpha = 0.01;X
 
 fprintf('\nTesting the cost function ...\n')
 % compute and display initial cost

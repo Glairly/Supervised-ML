@@ -35,6 +35,9 @@ fprintf('Loading data ...\n');
 
 %% Load Data
 data = load('ex1data2.txt');
+%data = [zeros(10,1),zeros(10,1),zeros(10,1)];
+%[data(:,1),data(:,3)] = randomData(10);
+%data(:,2) = data(:,1).^2;
 X = data(:, 1:2);
 y = data(:, 3);
 m = length(y);
@@ -129,13 +132,18 @@ fprintf('Solving with normal equations...\n');
 %
 
 %% Load Data
-data = csvread('ex1data2.txt');
+%data = csvread('ex1data2.txt');
+data = [zeros(10,1),zeros(10,1),zeros(10,1)];
+[data(:,1),data(:,3)] = randomData(10);
+data(:,2) = data(:,1).^2;
 X = data(:, 1:2);
 y = data(:, 3);
 m = length(y);
-
+data
 % Add intercept term to X
 X = [ones(m, 1) X];
+
+plotData(X(:,1), y);
 
 % Calculate the parameters from the normal equation
 theta = normalEqn(X, y);
@@ -144,6 +152,11 @@ theta = normalEqn(X, y);
 fprintf('Theta computed from the normal equations: \n');
 fprintf(' %f \n', theta);
 fprintf('\n');
+
+hold on; % keep previous plot visible
+plot(X(:,2), X*theta, '-')
+legend('Training data', 'Linear regression')
+hold off % don't overlay any more plots on this figure
 
 
 % Estimate the price of a 1650 sq-ft, 3 br house

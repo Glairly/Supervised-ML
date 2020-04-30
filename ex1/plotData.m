@@ -4,12 +4,12 @@ function plotData(x, y)
 %   population and profit.
 
 figure; % open a new figure window
-data = load('ex1data1.txt'); % read comma separated data
-x = data(:, 1); y = data(:, 2);
-m = length(y); 
+%data = load('med.txt'); % read comma separated data
+%x = data(:, 1); y = data(:, 2);
+%m = length(y); 
 plot(x,y,'rx', 'MarkerSize',10);
-ylabel('Profit');
-xlabel('Population');
+ylabel('Price(Bath)');
+xlabel('Ore Weight');
 % ====================== YOUR CODE HERE ======================
 % Instructions: Plot the training data into a figure using the 
 %               "figure" and "plot" commands. Set the axes labels using
